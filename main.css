@@ -1,0 +1,80 @@
+------------------Basics-------------------------
+	
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+------------------Basics-------------------------
+body{	
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/*IDs*/
+#h1Title{
+	padding-left: 25px;
+}
+#h3Sub_Title{
+	padding-left:25px;
+}
+#divLine1{
+	border-bottom:solid grey;
+	margin-top: 15px;
+}
+#divLine2{
+	border-bottom:solid grey;
+	margin-left: 4%;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 92%;
+}
+#divForm{
+	margin-top: 25px;
+}
+#submit{
+	margin-top:25px;
+}
+
+#divPost{
+	margin-right:2%;
+	width:73%;
+}
+#divDate{
+	float: right;
+}
+#img300{
+	width:  300px;
+	height: 300px;
+}
+#rowPost{
+	margin-top:25px;
+}
+
+/*Classes*/
+.resetFeatures{
+	padding: 0;
+}
+
+.textFormat{
+	color: black;
+}
+
+/*testing tool*/
+.s{
+	background-color: red;
+	opacity:0.5;
+}
