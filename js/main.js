@@ -18,7 +18,6 @@ $(document).ready(function(){
 	event.preventDefault();
 
 	 var formdata = new FormData($(this)[0]);
-	 // formdata.append('date', fullDate);
 	$.ajax({
 		url: 'controller.php', // Url to which the request is send
 		type: "POST",     // Type of request to be send, called as method
@@ -28,12 +27,22 @@ $(document).ready(function(){
 		processData:false,        // To send DOMDocument or non processed data file it is set to false
 		success: function(data)   // A function to be called if request succeeds
 				{	
-					
-					alert(data);
-
-					// $('#data').html(data);
+					$renderenData = JSON.parse(data);
+					renderHTML($renderenData);
+					alert('responded');
 				}
 		});
 	});
 });
+
+function renderHTML(data){
+	var htmlString = "";
+
+	$.each(data, function(i, v){
+						htmlString += '<div class="col-md-10 col-md-offset-1 resetFeatures">' + '<div id="divPost" class="col-md-9 well">' + '<div class="row">'	+ '<div class="col-md-9">'	+ '<p id="text">'+v.title+'</p>' + '</div>'	+ '<div id="divDate" class="col-md-3">' + '<p>' +v.date+ '</p>' + '</div>' + '</div>'	+ '<div class="col-md-6">'	+ '<img src="upload/' +v.image+ '" id="img300" class="img-responsive" alt="Responsive image">'+ '</div>'	+ '<div class="col-md-6">' + '<p>'+v.content+'</p>'	+ '</div>'	+ '<div class="col-md-6">'	+ '<p>Author:' +v.email+ '</p>' + '</div>' + '</div>' + '<div class="col-md-3 well">' + '<div class="col-md-10 col-md-offset-2">' + '<h5>Most Used Words</h5>' + '</div>' + '<div class="col-md-2">'	+ '<p>1)</p>' + '</div>' + '<div class="col-md-9">'	+ '<p>alice(46)</p>' + '</div>'	+ '</div>'	+ '</div>' + '</div>';				
+					});
+	
+					$('#rowPost').html(htmlString);
+
+}
 

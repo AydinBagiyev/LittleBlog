@@ -74,7 +74,6 @@ body{
 }
 
 /*testing tool*/
-.s{
-	background-color: red;
-	opacity:0.5;
+.mask{
+	background-color: pink; 
 }
