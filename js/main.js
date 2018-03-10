@@ -1,3 +1,15 @@
+
+// $(document).ready(function needDate(){
+// 	var date = new Date();
+// 	var d = new Date();
+// 	var curr_date = d.getDate();
+// 	var curr_month = d.getMonth();
+// 	curr_month++;
+// 	var curr_year = d.getFullYear();
+// 	return curr_month + "/" + curr_date + "/" + curr_year;
+// });
+
+
 $(document).ready(function(){
 // Attach a submit handler to the form
 	$('#formSubmit').submit(function(event){
@@ -6,7 +18,7 @@ $(document).ready(function(){
 	event.preventDefault();
 
 	 var formdata = new FormData($(this)[0]);
-	 // formdata.append('Customer',2);
+	 // formdata.append('date', fullDate);
 	$.ajax({
 		url: 'controller.php', // Url to which the request is send
 		type: "POST",     // Type of request to be send, called as method
@@ -16,6 +28,7 @@ $(document).ready(function(){
 		processData:false,        // To send DOMDocument or non processed data file it is set to false
 		success: function(data)   // A function to be called if request succeeds
 				{	
+					
 					alert(data);
 
 					// $('#data').html(data);
@@ -23,17 +36,4 @@ $(document).ready(function(){
 		});
 	});
 });
-// $(document).ready(function(){
-// 	function click(){
-// 		$.ajax({
-// 			type:'POST',
-// 			url: 'controller.php',
-// 			data:{
-// 				age:"22"
-// 			},
-// 			success:function(data){
-// 				$('#data').html
-// 			}
-// 		});
-// 	}
-// });
+

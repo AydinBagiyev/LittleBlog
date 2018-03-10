@@ -2,53 +2,49 @@
 
 if( isset($_POST) && isset($_FILES)){
 
-// include 'writeJSON.php';
-$myObj = new \stdClass();
+	if(file_exists('json/formData.json')){
+		$current_data = file_get_contents('json/formData.json');
+		$array_data = json_decode($current_data, true);
+		$extra = array(
+			'title' => $_POST['title'],
+			'content' => $_POST['content'],
+			'email' => $_POST['email'],
+			'date' => date('d-m-Y H:i')
+			);
+		$array_data[] = $extra;
+		$final_array = json_encode($array_data);
+			if(file_put_contents('json/formData.json', $final_array)){
+			}else{
+				echo 'File is Mile';
+			}
+	}else{
+		echo "File doesn't";
+	}
 
-$myObj->name = "John";
-$myObj->age = 30;
-$myObj->city = "New York";
 
-// $myJSON = json_encode($myObj);
-// $arrayJSON = array($myJSON );
-// array_push($arrayJSON, 'sdf');
-
-// $arrayName = array('dsfa' =>'dsaf');
-// $inp = file_get_contents('json/animal.json');
-// $tempArray = json_encode($inp);
-// // array_push($tempArray, $arrayName);
-// $arrayJSON = json_encode($tempArray);
-// file_put_contents('json/animal.json', $arrayJSON);
-
-$fp = fopen('json/animal.json', 'w');
-fwrite($fp, json_encode($myObj));
-fclose($fp);
-
-// print_r($tempArray);
-
-// if (isset($_FILES['image']['type']))
-// {
-// 	$validextensions = array('jpg', 'jpeg', 'png');
-// 	$temporary = explode(".", $_FILES["image"]["name"]);
-// 	$file_extension = end($temporary);
-// 	if ((($_FILES["image"]["type"] == "image/png") || ($_FILES["image"]["type"] == "image/jpg") || ($_FILES["image"]["type"] == "image/jpeg"))&& in_array($file_extension, $validextensions))
-// 	{
-// 		if ($_FILES["image"]["error"] > 0)
-// 			{
-// 			echo "Return Code: " . $_FILES["image"]["error"];
-// 			}
-// 			else
-// 			{
-// 			$sourcePath = $_FILES['image']['tmp_name']; // Storing source path of the file in a variable
-// 			$targetPath = "upload/".$_FILES['image']['name']; // Target path where file is to be stored
-// 			move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
-// 			}
-// 	}
-// 	else
-// 	{
-// 	echo "Invalid file Size or Type";
-// 	}
-// }
+	if (isset($_FILES['image']['type']))
+	{
+		$validextensions = array('jpg', 'jpeg', 'png');
+		$temporary = explode(".", $_FILES["image"]["name"]);
+		$file_extension = end($temporary);
+		if ((($_FILES["image"]["type"] == "image/png") || ($_FILES["image"]["type"] == "image/jpg") || ($_FILES["image"]["type"] == "image/jpeg"))&& in_array($file_extension, $validextensions))
+		{
+			if ($_FILES["image"]["error"] > 0)
+				{
+				echo "Return Code: " . $_FILES["image"]["error"];
+				}
+				else
+				{
+				$sourcePath = $_FILES['image']['tmp_name']; // Storing source path of the file in a variable
+				$targetPath = "upload/".$_FILES['image']['name']; // Target path where file is to be stored
+				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+				}
+		}
+		else
+		{
+		echo "Invalid file Type";
+		}
+	}
 
 // echo '
 // 	     <div id="rowPost" class="row">
@@ -88,6 +84,5 @@ fclose($fp);
 // 		</div>
 // ';
 }
-
 
 ?>

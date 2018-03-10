@@ -1,0 +1,100 @@
+
+<!--Row for Post data-->
+	     <div id="rowPost" class="row">
+
+<!--Div for starting post box appropriate position -->
+	     	<div class="col-md-10 col-md-offset-1 resetFeatures">
+
+<!--First part of the Post -->
+		     	<div id="divPost" class="col-md-9 well">
+			     	<div class="row">
+			     		<div class="col-md-10">	
+			     			<p id="text">Heyat kecerken semalari altindan, o butun quvvesiyle gulmeye calisirdi.</p>
+						</div>
+<!--Date Div -->
+			     		<div id="divDate" class="col-md-2">
+			     			<p >01/12/2018</p>
+			     		</div>
+		     		</div>
+<!--Image, Content  -->
+		     			<div class="col-md-6">
+		     				<img src="http://via.placeholder.com/300x300" id="img300" class="img-responsive" alt="Responsive image">
+		     			</div>
+		     			<div class="col-md-6"	 >
+		     				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		     			</div>
+		     			<div class="col-md-6">
+		     				<p>Author: aliquip ex ea commodo consequat.</p>
+		     			</div>
+		     		</div>
+<!-- Second Part of the Row -->
+	     		<div class="col-md-3 well">
+	     			<div class="col-md-10 col-md-offset-2">
+		     			<h5>Most Used Words</h5>
+		     		</div>
+		     		<div class="col-md-2">
+		     			<p>1)</p>
+		     		</div>
+		     		<div class="col-md-9">
+		     			<p>  alice(46)</p>
+		     		</div>
+		     	</div>
+	     	</div>		
+
+		</div>
+
+
+
+
+echo '<div id="rowPost" class="row">';
+echo '<div class="col-md-10 col-md-offset-1 resetFeatures">';	     
+echo '<div id="divPost" class="col-md-9 well">';
+echo '<div id="divPost" class="col-md-9 well">';
+echo '<div class="row">';
+echo '<div class="col-md-10">';
+echo '<p id="text"><?php $title ?></p>';
+echo '</div>';
+echo '<div id="divDate" class="col-md-2">';
+echo '<p >01/12/2018</p>';
+echo '</div>';
+echo '</div>';
+echo '<div class="col-md-6">';
+echo '<img src=<?php $image_tmp_path ?> id="img300" class="img-responsive" alt="Responsive image">';
+echo '</div>';
+echo '<div class="col-md-6"	 >';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
