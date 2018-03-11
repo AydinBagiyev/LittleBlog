@@ -29,20 +29,24 @@ $(document).ready(function(){
 				{	
 					$renderenData = JSON.parse(data);
 					renderHTML($renderenData);
-					alert('responded');
 				}
 		});
 	});
 });
 
 function renderHTML(data){
-	var htmlString = "";
-
-	$.each(data, function(i, v){
-						htmlString += '<div class="col-md-10 col-md-offset-1 resetFeatures">' + '<div id="divPost" class="col-md-9 well">' + '<div class="row">'	+ '<div class="col-md-9">'	+ '<p id="text">'+v.title+'</p>' + '</div>'	+ '<div id="divDate" class="col-md-3">' + '<p>' +v.date+ '</p>' + '</div>' + '</div>'	+ '<div class="col-md-6">'	+ '<img src="upload/' +v.image+ '" id="img300" class="img-responsive" alt="Responsive image">'+ '</div>'	+ '<div class="col-md-6">' + '<p>'+v.content+'</p>'	+ '</div>'	+ '<div class="col-md-6">'	+ '<p>Author:' +v.email+ '</p>' + '</div>' + '</div>' + '<div class="col-md-3 well">' + '<div class="col-md-10 col-md-offset-2">' + '<h5>Most Used Words</h5>' + '</div>' + '<div class="col-md-2">'	+ '<p>1)</p>' + '</div>' + '<div class="col-md-9">'	+ '<p>alice(46)</p>' + '</div>'	+ '</div>'	+ '</div>' + '</div>';				
-					});
+	var postsString = '';
+	var mostUsedWordString = '';
+	var middleString = '</div>';
+						
+						postInitialString =   '<div class="col-md-10 col-md-offset-1 resetFeatures">' + '<div id="divPost" class="col-md-9 well">' + '<div class="row">'	+ '<div class="col-md-9">'	+ '<p id="text">'+data[0].title+'</p>' + '</div>'	+ '<div id="divDate" class="col-md-3">' + '<p>' +data[0].date+ '</p>' + '</div>' + '</div>'	+ '<div class="col-md-6">'	+ '<img src="upload/' +data[0].image+ '" id="img300" class="img-responsive" alt="Responsive image">'+ '</div>'	+ '<div class="col-md-6">' + '<p>'+data[0].content+'</p>'	+ '</div>'	+ '<div class="col-md-6">'	+ '<p>Author:' +data[0].email+ '</p>' + '</div>' + '</div>';
+						mostUsedWordString =  '<div class="col-md-3 well">' + '<div class="col-md-10 col-md-offset-2">' + '<h5>Most Used Words</h5>' + '</div>' + '<div class="col-md-2">'	+ '<p>1)</p>' + '</div>' + '<div class="col-md-9">'	+ '<p>alice(46)</p>' + '</div>'	+ '</div>'	+ '</div>';
 	
-					$('#rowPost').html(htmlString);
+	for(i=1; i< data.length; i++){
+						postsString +=        '<div class="col-md-10 col-md-offset-1 resetFeatures">' + '<div id="divPost" class="col-md-9 well">' + '<div class="row">'	+ '<div class="col-md-9">'	+ '<p id="text">'+data[i].title+'</p>' + '</div>'	+ '<div id="divDate" class="col-md-3">' + '<p>' +data[i].date+ '</p>' + '</div>' + '</div>'	+ '<div class="col-md-6">'	+ '<img src="upload/' +data[i].image+ '" id="img300" class="img-responsive" alt="Responsive image">'+ '</div>'	+ '<div class="col-md-6">' + '<p>'+data[i].content+'</p>'	+ '</div>'	+ '<div class="col-md-6">'	+ '<p>Author:' +data[i].email+ '</p>' + '</div>' + '</div>' + '</div>';				
+					};
+
+					$('#rowPost').html(postInitialString+mostUsedWordString+middleString+postsString);
 
 }
 
